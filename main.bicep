@@ -1,18 +1,23 @@
 resource cosmosDbAccount 'Microsoft.DocumentDB/databaseAccounts@2021-04-15' = {
-  name: 'fgdfg'
-  location: 'francecentral'
+  name: 'myAccount'
+  location: 'swedencentral'
   kind: 'GlobalDocumentDB'
   properties: {
     databaseAccountOfferType: 'Standard'
     locations: [
       {
-        locationName: 'francecentral'
+        locationName: 'swedencentral'
         failoverPriority: 0
       }
     ]
     consistencyPolicy: {
       defaultConsistencyLevel: 'Session'
     }
+    capabilities: [
+      {
+        name: 'EnableDiskStorage'
+      }
+    ]
   }
 }
 
